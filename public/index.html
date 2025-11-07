@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="theme-color" content="#0d0d0d">
+    <meta name="description" content="Watch your favorite anime online. Stream the latest episodes and discover new series.">
+    <title>AnimeTube - Watch Anime Online</title>
+    <link rel="stylesheet" href="css/style.css?v=8">
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <!--Divided Navigation-->
+        <div class="left-nav">
+            <div class="logo">Anime<span class="accent">Tube</span></div>
+            <div class = "popular">Popular</div>
+        </div>
+
+        <div class="center-nav">
+                <div class="center-item">
+                    <button name="category" id="category" class = "dropdown btn-category">Category</button>
+                </div>
+            <div class="center-item">
+                <select name="news" id="news" class = "dropdown news-select">
+                    <option value="news" class="news-option">News</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="right-nav">
+            <div class="search nav-btn" title="Search">
+                <!-- Minimalistic search SVG -->
+                <svg class="nav-svg search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5"></circle>
+                    <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+            </div>
+            <div class="icon-wrap nav-btn" title="Watch-list">
+                <!-- Minimalistic bookmark SVG -->
+                <svg class="nav-svg watch-later-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M6 2h12v20l-6-4-6 4V2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+                </svg>
+            </div>
+            <div class="icon-wrap nav-btn" title="Profile">
+                <!-- Minimalistic user SVG -->
+                <svg class="nav-svg profile-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.5"></circle>
+                    <path d="M4 20c1.5-4 6-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!--Dropdown menu (To be toggled with js)-->
+    <div class="dropdown-content">
+        <div class="dropdown-grid">
+            <div class="dropdown-column sidebar-column">
+                <button class="table-btn">Browse all</button>
+                <button class="table-btn">Release Calendar</button>
+            </div>
+            <div class="dropdown-column genres-column">
+                <div class="genres-header">Genres</div>
+                <div class="genres-grid">
+                    <button class="table-btn genre-btn">Action</button>
+                    <button class="table-btn genre-btn">Adventure</button>
+                    <button class="table-btn genre-btn">Comedy</button>
+                    <button class="table-btn genre-btn">Drama</button>
+                    <button class="table-btn genre-btn">Fantasy</button>
+                    <button class="table-btn genre-btn">Romance</button>
+                    <button class="table-btn genre-btn">Sci-Fi</button>
+                    <button class="table-btn genre-btn">Seinen</button>
+                    <button class="table-btn genre-btn">Shojo</button>
+                    <button class="table-btn genre-btn">Shonen</button>
+                    <button class="table-btn genre-btn">Slice of Life</button>
+                    <button class="table-btn genre-btn">Sports</button>
+                    <button class="table-btn genre-btn">Supernatural</button>
+                    <button class="table-btn genre-btn">Thriller</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <!-- Hero Slider Section -->
+    <section class="hero-section" aria-roledescription="carousel">
+        <button class="hero-nav hero-nav-left" aria-label="Previous slide">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="hero-nav hero-nav-right" aria-label="Next slide">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <div class="hero-slides">
+            <div class="hero-slide" data-index="0">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <p class="hero-description">
+                        Ever since the death of his father, the burden of supporting the family has fallen 
+                        upon Tanjirou Kamado's shoulders. When tragedy strikes, Tanjirou must find the 
+                        strength to defeat demons and turn his sister back into a human.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                            </svg>
+                            Watch now
+                        </button>
+                        <button class="btn-secondary">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 2h12v20l-6-4-6 4V2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                            Add to watchlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" data-index="1">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <p class="hero-description">
+                        Master spy Twilight must form a fake family to complete his mission. But when he adopts 
+                        a telepath daughter and marries an assassin, this temporary arrangement becomes a 
+                        hilarious adventure full of unexpected bonds and heartwarming moments.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                            </svg>
+                            Watch now
+                        </button>
+                        <button class="btn-secondary">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 2h12v20l-6-4-6 4V2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                            Add to watchlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-slide" data-index="2">
+                <div class="hero-overlay"></div>
+                <div class="hero-content">
+                    <p class="hero-description">
+                        After his hometown is destroyed and his mother is killed, young Eren Jaeger vows to 
+                        cleanse the earth of the giant humanoid Titans that have brought humanity to the brink 
+                        of extinction. Join the fight against the titans in this thrilling dark fantasy saga.
+                    </p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8 5v14l11-7L8 5z" fill="currentColor"/>
+                            </svg>
+                            Watch now
+                        </button>
+                        <button class="btn-secondary">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6 2h12v20l-6-4-6 4V2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+                            </svg>
+                            Add to watchlist
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-indicators">
+            <button class="hero-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+            <button class="hero-dot" data-slide="1" aria-label="Go to slide 2"></button>
+            <button class="hero-dot" data-slide="2" aria-label="Go to slide 3"></button>
+        </div>
+    </section>
+
+    <!-- Continue Watching Section -->
+    <section class="content-section">
+        <h2 class="section-title">Continue Watching</h2>
+        <div class="cards-container" id="continue-watching">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="continue-watching">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="continue-watching">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Trending Now Section -->
+    <section class="content-section">
+        <h2 class="section-title">Trending Now</h2>
+        <div class="cards-container" id="trending-now">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="trending-now">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="trending-now">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- New Releases Section -->
+    <section class="content-section">
+        <h2 class="section-title">New Releases</h2>
+        <div class="cards-container" id="new-releases">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="new-releases">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="new-releases">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 class="footer-heading">Browse</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Popular</a></li>
+                    <li><a href="#">Simulcasts</a></li>
+                    <li><a href="#">Release Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Genres</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Romance</a></li>
+                    <li><a href="#">Fantasy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Account</h3>
+                <ul class="footer-links">
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Watchlist</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="js/dropdown.js"></script>
+    <script src="js/content.js"></script>
+</body>
+</html>
