@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#0d0d0d">
     <meta name="description" content="Watch your favorite anime online. Stream the latest episodes and discover new series.">
     <title>AnimeTube - Watch Anime Online</title>
-    <link rel="stylesheet" href="css/style.css?v=8">
+    <link rel="stylesheet" href="css/style.css?v=110">
 </head>
 <body>
     <nav class="navbar" role="navigation" aria-label="Main navigation">
@@ -17,13 +17,22 @@
         </div>
 
         <div class="center-nav">
+            <button class="mobile-nav-toggle">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="center-nav-dropdown">
                 <div class="center-item">
                     <button name="category" id="category" class = "dropdown btn-category">Category</button>
                 </div>
-            <div class="center-item">
-                <select name="news" id="news" class = "dropdown news-select">
-                    <option value="news" class="news-option">News</option>
-                </select>
+                <div class="center-item">
+                    <select name="news" id="news" class = "dropdown news-select">
+                        <option value="news" class="news-option">News</option>
+                    </select>
+                </div>
             </div>
         </div>
 
@@ -228,6 +237,222 @@
         </button>
     </section>
 
+    <!-- Popular Hindi Dubbed Anime Section -->
+    <section class="content-section">
+        <h2 class="section-title">Popular Hindi Dubbed Anime</h2>
+        <div class="cards-container" id="popular-hindi-dubbed">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="popular-hindi-dubbed">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="popular-hindi-dubbed">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Staff Picks Section -->
+    <section class="content-section">
+        <h2 class="section-title">Staff Picks</h2>
+        <div class="cards-container" id="staff-picks">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="staff-picks">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="staff-picks">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Popular Tamil Dubbed Anime Section -->
+    <section class="content-section">
+        <h2 class="section-title">Popular Tamil Dubbed Anime</h2>
+        <div class="cards-container" id="popular-tamil-dubbed">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="popular-tamil-dubbed">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="popular-tamil-dubbed">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Hidden Gems Section -->
+    <section class="content-section">
+        <h2 class="section-title">Hidden Gems</h2>
+        <div class="cards-container" id="hidden-gems">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="hidden-gems">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="hidden-gems">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Popular Near You Section -->
+    <section class="content-section">
+        <h2 class="section-title">Popular Near You</h2>
+        <div class="cards-container" id="popular-near-you">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="popular-near-you">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="popular-near-you">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Top Picks Near You Section -->
+    <section class="content-section">
+        <h2 class="section-title">Top Picks Near You</h2>
+        <div class="cards-container" id="top-picks-near-you">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="top-picks-near-you">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="top-picks-near-you">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Popular Telugu Dubbed Anime Section -->
+    <section class="content-section">
+        <h2 class="section-title">Popular Telugu Dubbed Anime</h2>
+        <div class="cards-container" id="popular-telugu-dubbed">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="popular-telugu-dubbed">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="popular-telugu-dubbed">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Evergreen Anime Section -->
+    <section class="content-section">
+        <h2 class="section-title">Evergreen Anime</h2>
+        <div class="cards-container" id="evergreen-anime">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="evergreen-anime">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="evergreen-anime">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Popular in India Section -->
+    <section class="content-section">
+        <h2 class="section-title">Popular in India</h2>
+        <div class="cards-container" id="popular-in-india">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="popular-in-india">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="popular-in-india">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- You May Also Like Section -->
+    <section class="content-section">
+        <h2 class="section-title">You May Also Like</h2>
+        <div class="cards-container" id="you-may-also-like">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="you-may-also-like">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="you-may-also-like">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Fantasy Anime Section -->
+    <section class="content-section">
+        <h2 class="section-title">Fantasy Anime</h2>
+        <div class="cards-container" id="fantasy-anime">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="fantasy-anime">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="fantasy-anime">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
+    <!-- Adventure Anime Section -->
+    <section class="content-section">
+        <h2 class="section-title">Adventure Anime</h2>
+        <div class="cards-container" id="adventure-anime">
+            <!-- Cards will be dynamically loaded -->
+        </div>
+        <button class="slider-nav slider-nav-left" aria-label="Scroll left" data-target="adventure-anime">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+        <button class="slider-nav slider-nav-right" aria-label="Scroll right" data-target="adventure-anime">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </button>
+    </section>
+
     <!-- Footer -->
     <footer class="site-footer">
         <div class="footer-content">
@@ -237,6 +462,7 @@
                     <li><a href="#">Popular</a></li>
                     <li><a href="#">Simulcasts</a></li>
                     <li><a href="#">Release Calendar</a></li>
+                    <li><a href="#">New Releases</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -245,6 +471,8 @@
                     <li><a href="#">Action</a></li>
                     <li><a href="#">Romance</a></li>
                     <li><a href="#">Fantasy</a></li>
+                    <li><a href="#">Adventure</a></li>
+                    <li><a href="#">Comedy</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -253,6 +481,7 @@
                     <li><a href="#">My Account</a></li>
                     <li><a href="#">Watchlist</a></li>
                     <li><a href="#">Settings</a></li>
+                    <li><a href="#">Preferences</a></li>
                 </ul>
             </div>
             <div class="footer-column">
@@ -261,10 +490,18 @@
                     <li><a href="#">Help Center</a></li>
                     <li><a href="#">Contact Us</a></li>
                     <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Terms of Service</a></li>
                 </ul>
             </div>
         </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> AnimeTube. All rights reserved. | Made with ❤️ for anime fans</p>
+        </div>
     </footer>
+    <script>
+        // Auto-update footer year
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
     <script src="js/dropdown.js"></script>
     <script src="js/content.js"></script>
 </body>

@@ -139,6 +139,20 @@ document.addEventListener('DOMContentLoaded', () => {
     populateSection('trending-now', animeData.trendingNow, false);
     populateSection('new-releases', animeData.newReleases, false);
     
+    // Populate new sections with trending data (reusing for demo)
+    populateSection('popular-hindi-dubbed', animeData.trendingNow, false);
+    populateSection('staff-picks', animeData.trendingNow, false);
+    populateSection('popular-tamil-dubbed', animeData.trendingNow, false);
+    populateSection('hidden-gems', animeData.trendingNow, false);
+    populateSection('popular-near-you', animeData.trendingNow, false);
+    populateSection('top-picks-near-you', animeData.trendingNow, false);
+    populateSection('popular-telugu-dubbed', animeData.trendingNow, false);
+    populateSection('evergreen-anime', animeData.trendingNow, false);
+    populateSection('popular-in-india', animeData.trendingNow, false);
+    populateSection('you-may-also-like', animeData.trendingNow, false);
+    populateSection('fantasy-anime', animeData.trendingNow, false);
+    populateSection('adventure-anime', animeData.trendingNow, false);
+    
     // Initialize scroll animations
     initScrollAnimations();
     
@@ -212,6 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let current = 0;
     const intervalMs = 5000;
+    
     let timer = null;
 
     function showSlide(index) {
