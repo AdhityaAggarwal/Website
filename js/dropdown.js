@@ -109,4 +109,54 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     console.log('Dropdown functionality initialized');
+    
+    // Check login status and update UI
+    function updateLoginStatus() {
+        const userData = localStorage.getItem('animetube_user');
+        const profileBtn = document.getElementById('profile-btn');
+        
+        if (userData && profileBtn) {
+            const user = JSON.parse(userData);
+            // Add logged-in indicator
+            profileBtn.classList.add('logged-in');
+            profileBtn.title = `Logged in as ${user.name || user.email}`;
+            
+            // Add a small dot indicator
+            if (!profileBtn.querySelector('.login-indicator')) {
+                const indicator = document.createElement('span');
+                indicator.className = 'login-indicator';
+                profileBtn.appendChild(indicator);
+            }
+        }
+    }
+    
+    // Call on page load
+    updateLoginStatus();
+    
+    // Profile button - redirect to auth page
+    const profileBtn = document.getElementById('profile-btn');
+    if (profileBtn) {
+        profileBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Check if user is already logged in
+            const userData = localStorage.getItem('animetube_user');
+            
+            if (userData) {
+                // User is logged in - show profile menu or redirect to profile page
+                const user = JSON.parse(userData);
+                console.log('User is logged in:', user);
+                
+                // For now, just log them out on click (you can create a profile page instead)
+                if (confirm(`Logged in as ${user.name || user.email}\n\nDo you want to log out?`)) {
+                    localStorage.removeItem('animetube_user');
+                    alert('Logged out successfully!');
+                    window.location.reload();
+                }
+            } else {
+                // User not logged in - redirect to auth page
+                window.location.href = 'auth.html';
+            }
+        });
+    }
 });

@@ -1954,6 +1954,28 @@ body {
     }
 }
 
+/* Login indicator dot */
+#profile-btn.logged-in .login-indicator {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 0.5em;
+    height: 0.5em;
+    background: var(--first-main);
+    border-radius: 50%;
+    border: 2px solid var(--background);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
 /* Mobile navigation dropdown */
 .mobile-nav-toggle {
     display: none;
