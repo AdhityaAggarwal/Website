@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#0d0d0d">
     <meta name="description" content="Watch your favorite anime online. Stream the latest episodes and discover new series.">
     <title>AnimeTube - Watch Anime Online</title>
-    <link rel="stylesheet" href="css/style.css?v=110">
+    <link rel="stylesheet" href="css/style.css?v=1762788306">
 </head>
 <body>
     <nav class="navbar" role="navigation" aria-label="Main navigation">
@@ -498,9 +498,12 @@
             <p>&copy; <span id="current-year"></span> AnimeTube. All rights reserved. | Made with ❤️ for anime fans</p>
         </div>
     </footer>
+    <!-- jQuery - Local file for offline use -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+    
     <script>
         // Auto-update footer year
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+        $('#current-year').text(new Date().getFullYear());
     </script>
     <script src="js/dropdown.js"></script>
     <script src="js/content.js"></script>

@@ -214,8 +214,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Apply parallax transform using CSS variable - removed as it's now handled in the scroll event
-
 // --- Hero slider initialization ---
 document.addEventListener('DOMContentLoaded', () => {
     const slides = Array.from(document.querySelectorAll('.hero-slide'));
@@ -282,8 +280,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Pause on hover to improve UX
     const hero = document.querySelector('.hero-section');
-    hero.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); timer = null; });
-    hero.addEventListener('mouseleave', () => { if (!timer) timer = setInterval(nextSlide, intervalMs); });
+    if (hero) {
+        hero.addEventListener('mouseenter', () => { if (timer) clearInterval(timer); timer = null; });
+        hero.addEventListener('mouseleave', () => { if (!timer) timer = setInterval(nextSlide, intervalMs); });
+    }
 });
 
 // --- Slider controls for content sections ---
@@ -301,7 +301,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Ultra-smooth scroll with easing
             const start = container.scrollLeft;
             const target = start + (scrollAmount * direction);
-            const duration = 1200; // milliseconds - longer for ultra-smooth feel
+            const duration = 1200;
             const startTime = performance.now();
             
             function easeInOutQuint(t) {
@@ -324,29 +324,47 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    // Add touch swipe support for mobile
+    // Add touch swipe support for mobile - improved to allow vertical scrolling
     document.querySelectorAll('.cards-container').forEach(container => {
         let startX = 0;
+        let startY = 0;
         let scrollLeft = 0;
         let isDown = false;
+        let isHorizontalScroll = false;
         
         container.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].pageX - container.offsetLeft;
+            startX = e.touches[0].pageX;
+            startY = e.touches[0].pageY;
             scrollLeft = container.scrollLeft;
             isDown = true;
-        });
+            isHorizontalScroll = false;
+        }, { passive: true });
         
         container.addEventListener('touchmove', (e) => {
             if (!isDown) return;
-            e.preventDefault();
-            const x = e.touches[0].pageX - container.offsetLeft;
-            const walk = (x - startX) * 2;
-            container.scrollLeft = scrollLeft - walk;
-        });
+            
+            const currentX = e.touches[0].pageX;
+            const currentY = e.touches[0].pageY;
+            const diffX = Math.abs(currentX - startX);
+            const diffY = Math.abs(currentY - startY);
+            
+            // Determine scroll direction on first move
+            if (!isHorizontalScroll && (diffX > 5 || diffY > 5)) {
+                isHorizontalScroll = diffX > diffY;
+            }
+            
+            // Only prevent default and handle horizontal scrolling if user is swiping horizontally
+            if (isHorizontalScroll) {
+                e.preventDefault();
+                const walk = (startX - currentX) * 1.5;
+                container.scrollLeft = scrollLeft + walk;
+            }
+        }, { passive: false });
         
         container.addEventListener('touchend', () => {
             isDown = false;
-        });
+            isHorizontalScroll = false;
+        }, { passive: true });
     });
 });
 
@@ -362,7 +380,6 @@ function initScrollAnimations() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
-                // Don't unobserve so animation happens every time
             }
         });
     }, observerOptions);
@@ -399,7 +416,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Handle orientation changes
     window.addEventListener('orientationchange', () => {
         setTimeout(() => {
-            // Recalculate layouts after orientation change
             document.querySelectorAll('.cards-container').forEach(container => {
                 container.scrollLeft = 0;
             });
@@ -414,12 +430,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const scrolled = window.pageYOffset;
         const heroBottom = heroSection ? heroSection.offsetHeight : 0;
         
-        // Only apply parallax when hero is visible
         if (scrolled < heroBottom && heroSection) {
             const parallaxSpeed = isMobile() ? 0.25 : 0.4;
             const offset = scrolled * parallaxSpeed;
             
-            // Apply parallax to all hero slides
             const heroSlides = document.querySelectorAll('.hero-slide');
             heroSlides.forEach(slide => {
                 slide.style.setProperty('--parallax-offset', `${offset}px`);
@@ -436,12 +450,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { passive: true });
     
-    // Initial call
     if (heroSection) {
         updateParallax();
     }
     
-    // Add viewport meta tag detection for safe area insets (for notched phones)
+    // Add viewport meta tag detection for safe area insets
     if (window.CSS && window.CSS.supports('padding-top: env(safe-area-inset-top)')) {
         document.body.style.paddingTop = 'calc(60px + env(safe-area-inset-top, 0px))';
     }

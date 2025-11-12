@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeTube - Setup</title>
+    <link rel="stylesheet" href="start-here.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">Anime<span class="accent">Tube</span></div>
+            <div class="subtitle">Static Website Setup Guide</div>
+        </div>
+        
+        <div class="warning">
+            ⚠️ Important: This site has been converted from Node.js to a pure static website using jQuery. You no longer need Node.js or npm!
+        </div>
+        
+        <div class="methods">
+            <div class="method">
+                <div class="method-title">🚀 Method 1: Quick Start (Recommended)</div>
+                <div class="method-description">
+                    Use the provided scripts to start a local server instantly.
+                </div>
+                <ul class="method-steps">
+                    <li><strong>Windows:</strong> Double-click <code>start-server.bat</code></li>
+                    <li><strong>Mac/Linux:</strong> Run <code>./start-server.sh</code> in terminal</li>
+                    <li>Your browser will open automatically to the site</li>
+                </ul>
+                <div class="method-description" style="margin-top: 15px; font-size: 14px;">
+                    Requires Python (usually pre-installed on most systems)
+                </div>
+            </div>
+            
+            <div class="method">
+                <div class="method-title">💻 Method 2: Manual Python Server</div>
+                <div class="method-description">
+                    Start the server manually using Python's built-in HTTP server.
+                </div>
+                <ul class="method-steps">
+                    <li>Open terminal in this folder</li>
+                    <li>Run: <code>cd public</code></li>
+                    <li>Run: <code>python -m http.server 8000</code></li>
+                    <li>Open browser to <code>http://localhost:8000</code></li>
+                </ul>
+            </div>
+            
+            <div class="method">
+                <div class="method-title">🎯 Method 3: Direct Browser Access</div>
+                <div class="method-description">
+                    Quickest way but some features may not work due to browser security.
+                </div>
+                <a href="public/index.html" class="btn">Open AnimeTube</a>
+                <div class="method-description" style="margin-top: 15px; font-size: 14px; color: #ff6b35;">
+                    Note: Some features like local storage may not work when opening files directly.
+                </div>
+            </div>
+            
+            <div class="method">
+                <div class="method-title">📝 Method 4: VS Code Live Server</div>
+                <div class="method-description">
+                    Best for development and testing.
+                </div>
+                <ul class="method-steps">
+                    <li>Install "Live Server" extension in VS Code</li>
+                    <li>Right-click <code>public/index.html</code></li>
+                    <li>Select "Open with Live Server"</li>
+                </ul>
+            </div>
+            
+            <div class="method">
+                <div class="method-title">🌐 Method 5: Deploy Online</div>
+                <div class="method-description">
+                    Host the site on free static hosting services.
+                </div>
+                <ul class="method-steps">
+                    <li>Upload <code>public</code> folder to GitHub Pages</li>
+                    <li>Or use Netlify, Vercel, or Cloudflare Pages</li>
+                    <li>Deploy with a single click or git push</li>
+                </ul>
+                <a href="README.md" class="btn btn-secondary">View Full Documentation</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>Made with ❤️ for anime fans</p>
+            <p style="margin-top: 10px;">See <code>MIGRATION-NOTES.md</code> for technical details about the conversion</p>
+        </div>
+    </div>
+</body>
+</html>
