@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="theme-color" content="#0d0d0d">
+    <meta name="description" content="Watch anime, read reviews, and share your thoughts">
+    <title>Anime Details - AnimeTube</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/anime-detail.css">
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="left-nav">
+            <a href="index.html" class="logo">Anime<span class="accent">Tube</span></a>
+            <a href="index.html" class="popular">Popular</a>
+        </div>
+
+        <div class="center-nav">
+            <button class="mobile-nav-toggle">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="center-nav-dropdown">
+                <div class="center-item">
+                    <button name="category" id="category" class="dropdown btn-category">Category</button>
+                </div>
+                <div class="center-item">
+                    <select name="news" id="news" class="dropdown news-select">
+                        <option value="news" class="news-option">News</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-nav">
+            <div class="search nav-btn" title="Search">
+                <svg class="nav-svg search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5"></circle>
+                    <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+            </div>
+            <div class="icon-wrap nav-btn" title="Watchlist">
+                <svg class="nav-svg watch-later-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M6 2h12v20l-6-4-6 4V2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+                </svg>
+            </div>
+            <div class="icon-wrap nav-btn" id="profile-btn" title="Profile">
+                <svg class="nav-svg profile-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.5"></circle>
+                    <path d="M4 20c1.5-4 6-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Anime Detail Section -->
+    <section class="anime-detail-section" id="anime-detail">
+        <!-- Content will be dynamically loaded -->
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading anime details...</p>
+        </div>
+    </section>
+
+    <!-- Review Section -->
+    <section class="review-section" id="review-section" style="display: none;">
+        <div class="review-container">
+            <!-- Rating Overview -->
+            <div class="rating-overview">
+                <div class="rating-summary">
+                    <div class="average-rating">
+                        <span class="rating-number" id="avg-rating">0.0</span>
+                        <div class="rating-stars" id="rating-stars">
+                            <!-- Stars will be generated -->
+                        </div>
+                        <p class="rating-count"><span id="review-count">0</span> reviews</p>
+                    </div>
+                    <div class="rating-distribution" id="rating-distribution">
+                        <!-- Rating bars will be generated -->
+                    </div>
+                </div>
+
+                <!-- Write Review Button -->
+                <button class="write-review-btn" id="write-review-btn">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    Write a Review
+                </button>
+            </div>
+
+            <!-- Review Form (Hidden by default) -->
+            <div class="review-form-container" id="review-form-container" style="display: none;">
+                <h3>Write Your Review</h3>
+                <form id="review-form">
+                    <div class="form-group">
+                        <label for="username">Your Name</label>
+                        <input type="text" id="review-username" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Your Rating</label>
+                        <div class="star-rating-input" id="star-rating-input">
+                            <span class="star-input" data-rating="1">★</span>
+                            <span class="star-input" data-rating="2">★</span>
+                            <span class="star-input" data-rating="3">★</span>
+                            <span class="star-input" data-rating="4">★</span>
+                            <span class="star-input" data-rating="5">★</span>
+                            <span class="star-input" data-rating="6">★</span>
+                            <span class="star-input" data-rating="7">★</span>
+                            <span class="star-input" data-rating="8">★</span>
+                            <span class="star-input" data-rating="9">★</span>
+                            <span class="star-input" data-rating="10">★</span>
+                        </div>
+                        <input type="hidden" id="rating-value" value="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-comment">Your Review</label>
+                        <textarea id="review-comment" rows="5" placeholder="Share your thoughts about this anime..." required></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="button" class="cancel-btn" id="cancel-review-btn">Cancel</button>
+                        <button type="submit" class="submit-btn">Submit Review</button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Reviews List -->
+            <div class="reviews-list">
+                <div class="reviews-header">
+                    <h3>User Reviews</h3>
+                    <select id="sort-reviews" class="sort-select">
+                        <option value="helpful">Most Helpful</option>
+                        <option value="recent">Most Recent</option>
+                        <option value="rating">Highest Rated</option>
+                    </select>
+                </div>
+                <div class="reviews-container" id="reviews-container">
+                    <!-- Reviews will be dynamically loaded -->
+                </div>
+                <div class="no-reviews" id="no-reviews" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor"/>
+                    </svg>
+                    <h4>No reviews yet</h4>
+                    <p>Be the first to review this anime!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 class="footer-heading">Browse</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Popular</a></li>
+                    <li><a href="anime.html">All Anime</a></li>
+                    <li><a href="#">Simulcasts</a></li>
+                    <li><a href="#">Release Calendar</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Genres</h3>
+                <ul class="footer-links">
+                    <li><a href="anime.html?category=Action">Action</a></li>
+                    <li><a href="anime.html?category=Romance">Romance</a></li>
+                    <li><a href="anime.html?category=Fantasy">Fantasy</a></li>
+                    <li><a href="anime.html?category=Comedy">Comedy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Account</h3>
+                <ul class="footer-links">
+                    <li><a href="auth.html">Sign In</a></li>
+                    <li><a href="#">Watchlist</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> AnimeTube. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript files -->
+    <script src="js/anime-data.js"></script>
+    <script src="js/reviews.js"></script>
+    <script src="js/anime-detail.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

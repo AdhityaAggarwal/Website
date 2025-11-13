@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="theme-color" content="#0d0d0d">
+    <meta name="description" content="Browse and discover anime by categories. Filter by genre, language, and more.">
+    <title>Browse Anime - AnimeTube</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/anime.css">
+</head>
+<body>
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <!--Divided Navigation-->
+        <div class="left-nav">
+            <a href="index.html" class="logo">Anime<span class="accent">Tube</span></a>
+            <a href="index.html" class="popular">Popular</a>
+        </div>
+
+        <div class="center-nav">
+            <button class="mobile-nav-toggle">
+                <div class="hamburger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+            <div class="center-nav-dropdown">
+                <div class="center-item">
+                    <button name="category" id="category" class="dropdown btn-category">Category</button>
+                </div>
+                <div class="center-item">
+                    <select name="news" id="news" class="dropdown news-select">
+                        <option value="news" class="news-option">News</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="right-nav">
+            <div class="search nav-btn" title="Search">
+                <svg class="nav-svg search-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5"></circle>
+                    <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+            </div>
+            <div class="icon-wrap nav-btn" title="Watchlist">
+                <svg class="nav-svg watch-later-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M6 2h12v20l-6-4-6 4V2z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path>
+                </svg>
+            </div>
+            <div class="icon-wrap nav-btn" id="profile-btn" title="Profile">
+                <svg class="nav-svg profile-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <circle cx="12" cy="8" r="3" stroke="currentColor" stroke-width="1.5"></circle>
+                    <path d="M4 20c1.5-4 6-6 8-6s6.5 2 8 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!--Dropdown menu (To be toggled with js)-->
+    <div class="dropdown-content">
+        <div class="dropdown-grid">
+            <div class="dropdown-column sidebar-column">
+                <a href="anime.html" class="table-btn">Browse all</a>
+                <button class="table-btn">Release Calendar</button>
+            </div>
+            <div class="dropdown-column genres-column">
+                <div class="genres-header">Genres</div>
+                <div class="genres-grid" id="dropdown-genres-grid">
+                    <!-- Genres will be dynamically populated -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Anime Browse Section -->
+    <section class="anime-browse-section">
+        <div class="browse-header">
+            <h1 class="browse-title">Browse Anime</h1>
+            <p class="browse-subtitle" id="active-filters-text">Showing all anime</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <svg class="search-input-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5"></circle>
+                    <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                </svg>
+                <input 
+                    type="text" 
+                    id="anime-search" 
+                    class="search-input" 
+                    placeholder="Search anime by title or select categories..."
+                    autocomplete="off"
+                >
+                <button class="search-clear-btn" id="clear-search" aria-label="Clear search">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Category Dropdown for Search -->
+            <div class="category-dropdown" id="category-dropdown">
+                <div class="category-dropdown-header">
+                    <span>Select Categories</span>
+                    <button class="clear-categories-btn" id="clear-categories">Clear All</button>
+                </div>
+                <div class="category-grid" id="category-grid">
+                    <!-- Categories will be dynamically populated -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-controls">
+            <div class="selected-categories" id="selected-categories">
+                <!-- Selected category chips will appear here -->
+            </div>
+            
+            <div class="match-mode-toggle">
+                <label class="toggle-label">
+                    <input type="checkbox" id="match-all-toggle" class="toggle-input">
+                    <span class="toggle-slider"></span>
+                    <span class="toggle-text">
+                        <span class="match-any">Match ANY category</span>
+                        <span class="match-all">Match ALL categories</span>
+                    </span>
+                </label>
+                <div class="match-mode-info">
+                    <svg class="info-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"></circle>
+                        <path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                    <span class="match-mode-tooltip">Toggle between showing anime that match any selected category vs all selected categories</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results Count -->
+        <div class="results-info">
+            <span id="results-count">Loading anime...</span>
+            <button class="sort-btn" id="sort-btn">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3 6h18M3 12h12M3 18h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Sort
+            </button>
+        </div>
+
+        <!-- Anime Grid -->
+        <div class="anime-grid" id="anime-grid">
+            <!-- Anime cards will be dynamically populated -->
+        </div>
+
+        <!-- No Results Message -->
+        <div class="no-results" id="no-results">
+            <svg class="no-results-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="1.5"></circle>
+                <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            </svg>
+            <h2>No anime found</h2>
+            <p>Try adjusting your filters or search terms</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3 class="footer-heading">Browse</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Popular</a></li>
+                    <li><a href="anime.html">All Anime</a></li>
+                    <li><a href="#">Simulcasts</a></li>
+                    <li><a href="#">Release Calendar</a></li>
+                    <li><a href="#">New Releases</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Genres</h3>
+                <ul class="footer-links">
+                    <li><a href="anime.html?category=Action">Action</a></li>
+                    <li><a href="anime.html?category=Romance">Romance</a></li>
+                    <li><a href="anime.html?category=Fantasy">Fantasy</a></li>
+                    <li><a href="anime.html?category=Adventure">Adventure</a></li>
+                    <li><a href="anime.html?category=Comedy">Comedy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Account</h3>
+                <ul class="footer-links">
+                    <li><a href="auth.html">Sign In</a></li>
+                    <li><a href="#">My Account</a></li>
+                    <li><a href="#">Watchlist</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">Preferences</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3 class="footer-heading">Support</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Help Center</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> AnimeTube. All rights reserved. | Made with ❤️ for anime fans</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript files -->
+    <script src="js/anime-data.js"></script>
+    <script src="js/reviews.js"></script>
+    <script src="js/anime-filter.js"></script>
+    <script src="js/dropdown.js"></script>
+    <script>
+        // Auto-update footer year
+        document.addEventListener('DOMContentLoaded', function() {
+            const yearElement = document.getElementById('current-year');
+            if (yearElement) {
+                yearElement.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>

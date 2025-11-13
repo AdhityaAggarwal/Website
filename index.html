@@ -12,7 +12,7 @@
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <!--Divided Navigation-->
         <div class="left-nav">
-            <div class="logo">Anime<span class="accent">Tube</span></div>
+            <a href="index.html" class="logo">Anime<span class="accent">Tube</span></a>
             <div class = "popular">Popular</div>
         </div>
 
@@ -64,26 +64,26 @@
     <div class="dropdown-content">
         <div class="dropdown-grid">
             <div class="dropdown-column sidebar-column">
-                <button class="table-btn">Browse all</button>
+                <a href="anime.html" class="table-btn">Browse all</a>
                 <button class="table-btn">Release Calendar</button>
             </div>
             <div class="dropdown-column genres-column">
                 <div class="genres-header">Genres</div>
                 <div class="genres-grid">
-                    <button class="table-btn genre-btn">Action</button>
-                    <button class="table-btn genre-btn">Adventure</button>
-                    <button class="table-btn genre-btn">Comedy</button>
-                    <button class="table-btn genre-btn">Drama</button>
-                    <button class="table-btn genre-btn">Fantasy</button>
-                    <button class="table-btn genre-btn">Romance</button>
-                    <button class="table-btn genre-btn">Sci-Fi</button>
-                    <button class="table-btn genre-btn">Seinen</button>
-                    <button class="table-btn genre-btn">Shojo</button>
-                    <button class="table-btn genre-btn">Shonen</button>
-                    <button class="table-btn genre-btn">Slice of Life</button>
-                    <button class="table-btn genre-btn">Sports</button>
-                    <button class="table-btn genre-btn">Supernatural</button>
-                    <button class="table-btn genre-btn">Thriller</button>
+                    <a href="anime.html?category=Action" class="table-btn genre-btn">Action</a>
+                    <a href="anime.html?category=Adventure" class="table-btn genre-btn">Adventure</a>
+                    <a href="anime.html?category=Comedy" class="table-btn genre-btn">Comedy</a>
+                    <a href="anime.html?category=Drama" class="table-btn genre-btn">Drama</a>
+                    <a href="anime.html?category=Fantasy" class="table-btn genre-btn">Fantasy</a>
+                    <a href="anime.html?category=Romance" class="table-btn genre-btn">Romance</a>
+                    <a href="anime.html?category=Sci-Fi" class="table-btn genre-btn">Sci-Fi</a>
+                    <a href="anime.html?category=Seinen" class="table-btn genre-btn">Seinen</a>
+                    <a href="anime.html?category=Shojo" class="table-btn genre-btn">Shojo</a>
+                    <a href="anime.html?category=Shonen" class="table-btn genre-btn">Shonen</a>
+                    <a href="anime.html?category=Slice of Life" class="table-btn genre-btn">Slice of Life</a>
+                    <a href="anime.html?category=Sports" class="table-btn genre-btn">Sports</a>
+                    <a href="anime.html?category=Supernatural" class="table-btn genre-btn">Supernatural</a>
+                    <a href="anime.html?category=Thriller" class="table-btn genre-btn">Thriller</a>
                 </div>
             </div>
         </div>
@@ -503,8 +503,27 @@
     <script src="js/dropdown.js"></script>
     <script src="js/content.js"></script>
     <script>
-        // Auto-update footer year
+        // Initialize dropdown genres for navbar
         document.addEventListener('DOMContentLoaded', function() {
+            const dropdownGenresGrid = document.getElementById('dropdown-genres-grid');
+            if (dropdownGenresGrid) {
+                // All categories
+                const allGenres = [
+                    "Action", "Adventure", "Comedy", "Drama", "Fantasy", 
+                    "Horror", "Romance", "Sci-Fi", "Thriller", "Seinen", 
+                    "Shojo", "Shonen", "Sports", "Slice of Life", "Supernatural"
+                ];
+                
+                allGenres.forEach(genre => {
+                    const genreBtn = document.createElement('a');
+                    genreBtn.className = 'table-btn genre-btn';
+                    genreBtn.textContent = genre;
+                    genreBtn.href = `anime.html?category=${encodeURIComponent(genre)}`;
+                    dropdownGenresGrid.appendChild(genreBtn);
+                });
+            }
+            
+            // Auto-update footer year
             const yearElement = document.getElementById('current-year');
             if (yearElement) {
                 yearElement.textContent = new Date().getFullYear();
